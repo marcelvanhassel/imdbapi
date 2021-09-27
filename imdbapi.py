@@ -2,6 +2,14 @@ import http.client
 import json
 import urllib
 
+#required information to connect to rapidapi IMDB API
+conn = http.client.HTTPSConnection("imdb8.p.rapidapi.com")
+
+headers = {
+    'x-rapidapi-host': "imdb8.p.rapidapi.com",
+    'x-rapidapi-key': "INSERT RADPID API KEY HERE"
+    }
+
 #function to check if user wants more info on a given film
 def more_info():
     global filmtitle
@@ -58,13 +66,7 @@ def get_trivia():
         triviacount += 1
 
 
-#required information to connect to rapidapi IMDB API
-conn = http.client.HTTPSConnection("imdb8.p.rapidapi.com")
 
-headers = {
-    'x-rapidapi-host': "imdb8.p.rapidapi.com",
-    'x-rapidapi-key': "INSERT RADPID API KEY HERE"
-    }
 
 #Variable to check if we're still running
 working = True
@@ -124,7 +126,6 @@ while working:
             so = False
             continue
 
-    print(filmid)
     print(filmtitle)
     
     unknowninfo = True
